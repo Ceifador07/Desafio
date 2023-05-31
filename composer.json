@@ -20,5 +20,8 @@
         "files": [
             "config.php"
         ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
     }
 }

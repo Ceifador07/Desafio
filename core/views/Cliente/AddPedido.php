@@ -15,7 +15,7 @@
             <div class="col-sm-12 col-md-6">
                 <label for="" class="form-label">Categoria</label>
                 <input type="hidden" name="id" value="<?= !empty($PedidoUnico) ? $PedidoUnico[0]->id : '' ?>">
-                <select name="categoria" id="categoria" class="form-control" placeholder="" data-value="<?= BASE_URL ?>Admin/ProdutoEspecidico">
+                <select name="categoria" id="categoria" class="form-control" placeholder="" data-value="<?= BASE_URL ?>Main/ProdutoEspecidico">
                     <option value="">Escolhe a Categoria</option>
                     <?php if (!empty($categorias)) {
                         foreach ($categorias as $categoria) { ?>
@@ -42,7 +42,6 @@
             <div class="col-sm-12 col-md-6">
                 <label for="" class="form-label">Quantidade Stocke</label>
                 <input type="text" name="quantidade" id="" value="<?= !empty($PedidoUnico) ? $PedidoUnico[0]->quantidade : '' ?>" class="form-control">
-
                 <input type="hidden" name="status" value="Em Aberto">
             </div>
         </div>

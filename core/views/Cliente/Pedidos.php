@@ -24,7 +24,7 @@
             <tbody>
                 <?php if(!empty($pedidos)){
                     $ValorTotal = '';
-                    
+                     
                     foreach($pedidos as $pedido){ ?>
                 <tr>
                     <td><?=$pedido->id?></td>
@@ -34,7 +34,12 @@
                     <td><?=number_format($total,2)?> MT</td>
                     
                     <td><?=$pedido->status?></td>
-                    <td><button  class="btn btn-outline-danger deletar" data-bs="<?=$pedido->quantidade?>" id="<?=$pedido->id?>" data-id="<?=$pedido->produtos?>"    data-value="<?=BASE_URL?>Main/DeletarPedido" <?= $pedido->status == 'Pago' ? 'disabled' : ''  ?>><i class="fa-solid fa-trash me-2"></i>Delete</button></td>
+                    <td> <?php if($pedido->status != 'Pago' ){  ?>
+                            <a disabled href="<?=BASE_URL?>Cliente/AddPedido/<?= $pedido->id ?>" class="btn btn-outline-success"   ><i class="fa-solid fa-edit me-2"></i>Editar</a>
+                        <?php }else{ ?> 
+                        <button disabled class="btn btn-outline-success"><i class="fa-solid fa-edit me-2"></i>Editar</button><?php } ?>
+                        <button  class="btn btn-outline-danger deletar" data-bs="<?=$pedido->quantidade?>" id="<?=$pedido->id?>" data-id="<?=$pedido->produtos?>"    data-value="<?=BASE_URL?>Main/DeletarPedido" <?= $pedido->status == 'Pago' ? 'disabled' : ''  ?>><i class="fa-solid fa-trash me-2"></i>Delete</button>
+                    </td>
                 </tr>
                 <?php } ?>
                 <tfoot>

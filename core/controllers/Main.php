@@ -70,7 +70,6 @@ class Main
                $library->CadastrarCliente($nome, $apelido, $email, $sexo, $senha);
                $saida = 'Cliente Registado com sucesso';
           }
-
           //    saida da mensagem para a visualizacao do cliente 
           echo json_encode($saida);
      }
@@ -130,7 +129,18 @@ class Main
 
 
           $library = new library();
+          
+          /* pegar a quantidade do produto na tabela produto e subtrair pela
+            quantidade escolhida pelo cliente e inserir na tabela produtos o remanescente */
           $result = $library->VerificarQuantidade($produto);
+     
+          
+
+          
+          // if(!empty($nome) &&  !empty($produto)){
+               // Verificar se o pedido existe na tabela pedidos
+               $results = $library->VerificarProdutoPedido($produto,$nome);
+          // }
 
           if (empty($nome)) {
                $saida = 'Escolha o Cliente do Pedido';
@@ -140,13 +150,20 @@ class Main
                $saida = 'Informe a quantidade do Produto';
           } else if ($result[0]->quantidade < $quantidade) {
                $saida = 'Produto Nao Tem Stock';
-          } else {
-               
-               if($library->RegistarPedido($nome, $produto, $quantidade, $status)):
+          } else if(count($results) > 0){
+               // Pegar a quantidade do pedido existente na tabela pedidos e adicionar com a nova quantidade e actualizar na tabela pedidos
+               $QttNova = $results[0]->quantidade + $quantidade;
+               $library->ActualizarQuantidadePedido( $nome, $produto,$QttNova);
+               $saida = 'Pedido Registado com sucesso';
                $Qtty = $result[0]->quantidade - $quantidade;
                $library->NovaQuantidade($Qtty, $produto);
+          }else {
+               // Registar no novo pedido do usuario caso nao haja nenhum pedido com a mesmas caracteristicas
+               $library->RegistarPedido($nome, $produto, $quantidade, $status);
                $saida = 'Pedido Registado com sucesso';
-               endif;
+               $Qtty = $result[0]->quantidade - $quantidade;
+               $library->NovaQuantidade($Qtty, $produto);
+             
           }
 
           echo json_encode($saida);
@@ -225,12 +242,12 @@ class Main
                // }else{
                //      $saida = 'Quantidade Não foi Alterada';
                // }
-
           }
 
           echo json_encode($saida);
      }
 
+     // Actualizar o status do pedido do cliente 
      public function EstadoPedido()
      {
           $saida = '';
@@ -245,8 +262,17 @@ class Main
           }
           echo json_encode($saida);
      }
-
-     public function DeletarPedido()
+     // Buscar a lista de produtos e visualizar no select para casos de escolha da categoria 
+     public function ProdutoEspecidico(){
+          $saida = '';
+          $response = '';
+          $library = new library();
+          $id =$_POST['id'];
+          $dados = $library->ProdutoBusca($id);
+          echo json_encode($dados);
+      }
+     //  Deletar Pedidos 
+     public function DeletarPedido() 
      {
           $saida = '';
           $produto = filter_input(INPUT_POST, 'produtos');
@@ -260,6 +286,7 @@ class Main
           if (empty($id)) {
                $saida = 'Nenhum Pedido Selecionado';
           } else {
+               
                $Qtty1 = $result[0]->quantidade + $quantidade;
                $library->NovaQuantidade($Qtty1,$produto);
                $library->RemoverPedido($id);

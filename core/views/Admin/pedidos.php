@@ -8,6 +8,7 @@
     </div>
 </div>
 <div class="row">
+    <div class="resp"></div>
     <div class="table-responsive">
         <table class="table table-triped table-hover" id="example">
             <thead class="bg-dark text-white">
@@ -39,7 +40,7 @@
                             <td>
                                 <a href="<?=BASE_URL?>Admin/AddPedido/<?= $Pedido->id ?>" class="btn btn-outline-primary"><i class="fa-solid fa-edit me-2"></i>Editar</a>
                                 
-                                <button class="btn btn-outline-danger deletar" id="<?= $Pedido->id_produto ?>"  data-id="<?= $Pedido->id ?>"  data-value="<?=BASE_URL?>Main/DeletarPedido" ><i class="fa-solid fa-trash me-2"></i>Deletar</button>
+                                <button class="btn btn-outline-danger deletar" data-bs="<?=$Pedido->quantidade?>" id="<?=$Pedido->id?>" data-id="<?=$Pedido->id_produto?>"  data-value="<?=BASE_URL?>Main/DeletarPedido" ><i class="fa-solid fa-trash me-2"></i>Deletar</button>
 
                                 <a href="<?=BASE_URL?>Admin/DetalhePedido/<?= $Pedido->id_cliente ?>" class="btn btn-outline-success  " id="<?= $Pedido->id_produto ?>"  data-id="<?= $Pedido->id ?>"  data-value="<?=BASE_URL?>Main/DeletarPedido" ><i class="fa-solid fa-eye me-2"></i>Detalhes</a>
                             </td>

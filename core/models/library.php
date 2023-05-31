@@ -183,7 +183,7 @@ class library
             ':quantidade' => $quantidade,
             ':status' => $status,
         ];
-        var_dump($paramentros);
+        
         $db->insert("INSERT INTO pedidos VALUES(0,:produtos,:cliente,:quantidade,:status,NOW())", $paramentros);
         return true;
     }
@@ -238,6 +238,17 @@ class library
         $result = $db->update("UPDATE pedidos SET produtos = :produtos, cliente = :cliente, quantidade = :quantidade where id = :id", $paramentros);
         return $result;
     }
+    public function ActualizarQuantidadePedido( $nome, $produto, $QttNova)
+    {
+        $paramentros = [
+            ':produtos' => $produto,
+            ':cliente' => $nome,
+            ':quantidade' => $QttNova,
+        ];
+        $db = new Databases();
+        $result = $db->update("UPDATE pedidos SET produtos = :produtos, quantidade = :quantidade where produtos = :produtos and cliente = :cliente and status != 'Pago'", $paramentros);
+        return $result;
+    }
 
     public function EstadoPedidos($id, $status)
     {
@@ -248,6 +259,16 @@ class library
         $db = new Databases();
         $result = $db->update("UPDATE pedidos SET status = :status  where id = :id", $paramentros);
         return $result;
+    }
+    public function VerificarProdutoPedido($produto,$nome){
+        $paramentros = [
+            ':produto' => $produto,
+            ':nome' => $nome,
+        ];
+        $db = new Databases();
+        $result = $db->select("SELECT quantidade FROM pedidos where produtos = :produto and cliente = :nome and status != 'Pago'", $paramentros);
+        return $result;
+
     }
     public function RemoverPedido($id)
     {

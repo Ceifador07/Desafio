@@ -127,7 +127,7 @@ use core\models\library;
             $dados = [
                 'clientes'=> $clientes 
             ];
-            Store::Layout([
+            Store::Layout([ 
                 'Admin/layout/header_html',
                 'Admin/cliente',
                 'Admin/Modal/EditarCliente',
@@ -137,7 +137,7 @@ use core\models\library;
         public function definicoes(){
             $library = new library();
             $id = $_SESSION['idAdmin'];
-            $Nivel = $_SESSION['idAdmin'];
+            $Nivel = $_SESSION['Admin'];
             $clientes = $library->definicoes($id,$Nivel);
             $dados = [
                 'clientes'=> $clientes[0] 

@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="row px-2">
-    <form action="<?= BASE_URL ?>Main/RegistarCliente" class="form" method="post">
+    <form action="<?= BASE_URL ?>Main/ActualizarCliente" class="form" method="post">
         <div class="col-sm-12 col-md-6 md-3 py-2">
             <h3 class="py-2"></h3>
         </div>
@@ -17,6 +17,7 @@
             <div class="col-sm-12 col-md-6 mb-2">
                 <label for="" class="form-label">Nome</label>
                 <input type="text" name="nome" id="" value="<?= !empty($clientes) ?  $clientes->nome :' '; ?>" class="form-control">
+                <input type="hidden" name="id" id="" value="<?= !empty($clientes) ?  $clientes->id_cliente :' '; ?>" class="form-control">
             </div>
             <div class="col-sm-12 col-md-6 mb-2">
                 <label for="" class="form-label">Apelido</label>

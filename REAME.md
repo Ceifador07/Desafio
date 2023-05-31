@@ -16,4 +16,5 @@
 
 
     Pacotes de Dependências Instaladas são:
-    -Composer para a gestão de dependências;
+    -Composer para a gestão de dependências; 
+ 

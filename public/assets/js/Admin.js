@@ -143,13 +143,13 @@ $(document).ready(function () {
             cache: false,
             processData: false,
         }).done(function (resp) {
-
-            if (resp == 'Pedido Removido com sucesso' ||resp == 'Pedido Registado com sucesso' ||resp == 'Cliente Registado com sucesso' || resp == 'Categoria Registada com sucesso' || resp == 'Produto Registado com sucesso' ||  resp ==  'Produto Actualizado com sucesso') {
+            if ( resp == 'Pedido Registado com sucesso' ||resp == 'Cliente Registado com sucesso' || resp == 'Categoria Registada com sucesso' || resp == 'Produto Registado com sucesso' ||  resp ==  'Produto Actualizado com sucesso') {
                 $(".resp").html('<p class="alert alert-success me-2">' + resp + '</p>')
                 setTimeout(function () { location.reload(); }, 2000);
             } else {
                 $(".resp").html('<p class="alert alert-danger me-2">' + resp + '</p>')
             }
+            
 
         });
     })
