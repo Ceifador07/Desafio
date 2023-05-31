@@ -1,0 +1,2 @@
+$username = filter_input(INPUT_POST, 'email');
+$password = filter_input(INPUT_POST, 'senha')

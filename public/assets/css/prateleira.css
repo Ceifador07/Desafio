@@ -1,0 +1,162 @@
+.formulario{
+   /* background-color: rgb(237, 239, 245);*/
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    margin-top: -30px;   
+}
+
+.formulario .row{
+    margin-top: 30px;
+    float: lef;
+}
+
+.linha-horizontal{
+    color: black;
+    border: 2px;
+}
+.formulario .butoes{
+    justify-content: center;
+    margin: 0 auto;
+    margin-left: 405px;
+    margin-top: 20px;
+
+}
+
+.formulario .row #guardar{
+    background-color: rgb(4, 107, 4);
+    color: white ;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.formulario .butoes #limpar{
+    background-color: rgb(139, 6, 6);
+    color: white ;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+
+.formulario .row #guardar:hover{
+    background-color: rgb(10, 155, 10);
+}
+
+.formulario .butoes #limpar:hover{
+    background-color: rgb(241, 31, 31);
+}
+
+
+.butoes #limpar{
+    margin-left: 17px;
+}
+
+form .row ::placeholder{
+    font-style: italic;
+    
+}
+
+form label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+   
+}
+
+.main-painel h2{
+    width: 90%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.main-painel h2 img{
+
+    width: 50px;
+}
+
+form fieldset{
+    padding: 20px;
+    /*border: 1px solid black;*/
+    background-color: rgba(199, 209, 238, 0.616);
+    box-shadow: 0px 5px 15px black;
+    border-radius: 5px;
+}
+
+legend{
+    
+    border-bottom:  solid   1px black;
+}
+
+.formulario img{
+    width: 100px;
+
+}
+
+/*################### Pesquisa  ###################*/
+
+.pesquisa label {display: block;}
+.pesquisa input {
+    width: 50%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.pesquisa button{
+    border: none;
+    padding: 5px;
+    background-color: brown;
+    color: white;
+    border-radius: 3px;
+}
+.pesquisa{
+    margin-bottom: 10px;
+}
+
+
+
+/*******Divs*****/
+.main-painel .div-1{
+    background-color: aqua;
+    width: 50%;
+    float: left;
+}
+
+.main-painel .div-2{
+    background-color: red;
+    width: 30%;
+    float: right;
+}
+
+.main-painel .div-2 #cadastrar img{
+    width: 60px;
+}
+.main-painel .div-2 #cadastrar{
+    width: 300px;
+}
+
+.formulario .row img{
+    width: 50px;
+}
+
+.tabela1 img{
+    width: 20px;
+    background-color: green;
+}
+
+.tabela1 td,th{
+    text-align: center;
+}
+
+.tabela1{
+    background-color: white;
+    width: 70%;
+    margin: auto;
+    margin-top: 0px;
+    
+  }

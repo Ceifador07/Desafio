@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'poppins';
+    src: url("../fonts/Poppins-Regular.ttf");
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+}
+body{
+    width: 100%;
+  
+    font-family: 'poppins' !important;
+}
+.container-fluid{
+    width: 100% !important;
+    height: 100vh !important;
+}
+.container-fluid .conteiner{
+    width: 100%;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.conteiner .top {
+    text-align: center;
+}
+ 
